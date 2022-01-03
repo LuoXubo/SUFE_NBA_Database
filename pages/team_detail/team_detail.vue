@@ -8,14 +8,12 @@
 				<view style="margin-top: 30upx; font-size: 30upx;">Address: {{team_city}}</view>
 				<view style="margin-top: 30upx; font-size: 30upx;">Motto: {{team_info}}</view>
 			</view>
-			<!-- <image :src="team_img" style="position: absolute; right: 1600upx;"></image> -->
+			
 			<image :src="team_img" style="margin-left: 550upx;"></image>
 			<view class="coaches" style="position: absolute; right: 500upx;">
-				<view v-for="(item,index) in coach" :key="index">
-					<view class="coach_info">
-						<image class="coach_img" :src="item.img" @tap="to_coach_detail"></image>
-						<view style="font-size: 30upx;">{{item.name}}</view>
-					</view>
+				<view class="coach_info">
+					<image class="coach_img" :src="coach_img" @tap="to_coach_detail"></image>
+					<view style="font-size: 30upx;">{{coach_name}}</view>
 				</view>
 			</view>
 		</view>
@@ -24,7 +22,7 @@
 		<view style="margin-top: 100upx; margin-left: 1000upx;">
 			<view v-for="(item,index) in player" style="margin-left: 100upx; margin-top: 50upx;">
 				<view style="display: flex; flex-direction: row;">
-					<image :src="item.img" class="player_img"></image>
+					<image :src="item.img" class="player_img" @tap="to_player_detail"></image>
 					<view style="font-size: 40upx; margin-left: 40upx; margin-top: 50upx;">{{item.name}}</view>
 					<view style="font-size: 30upx; margin-left: 40upx; margin-top: 50upx;">{{item.number}}</view>
 				</view>
@@ -44,12 +42,8 @@
 				team_img: 'https://china.nba.com/media/img/teams/logos/GSW_logo.svg',
 				team_city : 'San Francisco',
 				team_info: 'The whole team is a city',
-				coach : [
-					{
-						img : 'https://www.basketball-reference.com/req/202106291/images/coaches/kerrst01c.png',
-						name : 'Steve Kerr',
-					}
-				],
+				coach_img : 'https://www.basketball-reference.com/req/202106291/images/coaches/kerrst01c.png',
+				coach_name : 'Steve Kerr',
 				player: [
 					{
 						img: 'https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png',
@@ -73,6 +67,14 @@
 			to_coach_detail(e){
 				uni.navigateTo({
 					url:'../coach_detail/coach_detail',
+					fail(e){
+						console.log(e)
+					}
+				})
+			},
+			to_player_detail(e){
+				uni.navigateTo({
+					url : '../player_detail/player_detail',
 					fail(e){
 						console.log(e)
 					}

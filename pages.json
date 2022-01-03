@@ -1,13 +1,24 @@
 {
-	"pages": [{
-		"path": "pages/index/index",
-		"style": {
-			"navigationBarTitleText": "uni-app"
-		}
+	"pages": [
+	{
+		"path": "pages/index/index"
 	},
 	{
 		"path" : "pages/team_detail/team_detail"
-	}],
+	},
+	{
+		"path" : "pages/coach_detail/coach_detail"
+	},
+	{
+		"path": "pages/player_detail/player_detail"
+		
+	},
+	{
+		"path": "pages/player_detail/career_detail"
+	}
+	
+	],
+	
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

@@ -39,7 +39,19 @@
 				]
 			}
 		},
-		methods: {
+		onLoad () {
+			uni.request({
+				url: '',
+				method: 'GET',
+				data: {},
+				success: res => {
+					console.log(res)
+				},
+				fail: () => {},
+				complete: () => {}
+			});
+		},
+		methods: {	
 			to_team_detail(e){
 				uni.navigateTo({
 					url:'../team_detail/team_detail',
