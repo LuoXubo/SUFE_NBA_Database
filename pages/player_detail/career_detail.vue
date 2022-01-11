@@ -11,8 +11,8 @@
 				</view>
 				<image :src="player_img" class="player_img"></image>
 			</view>
-			
 		</uni-card>
+		
 		<uni-card>
 			<picker @change="StatType" :range="StatTypeArray" style="margin-left: 1700upx; font-size: 40upx;">
 				<label>Stat type : </label>
@@ -20,7 +20,6 @@
 			</picker>
 			<canvas canvas-id="canvasLine" id="canvasLine" @touchstart="touchLine" style="height: 750upx; width: 1000upx; margin-top: 100upx; margin-left: 1300upx;"></canvas>
 		</uni-card>
-		
 	</view>
 </template>
 
@@ -84,8 +83,22 @@
 		},
 		
 		onLoad(id){
-			
 			this.id = id;
+			uni.request({
+				url: '',
+				method: 'GET',
+				data: {
+					id : id
+				},
+				success: res => {
+					let data = res.data;
+					this.name = data.name;
+					this.player_img = data.photo;
+					
+				},
+				fail: () => {},
+				complete: () => {}
+			});
 			_self = this;
 			this.cWidth=uni.upx2px(750);
 			this.cHeight=uni.upx2px(500);
