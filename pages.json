@@ -4,24 +4,41 @@
 		"path": "pages/index/index"
 	},
 	{
-		"path" : "pages/team_detail/team_detail"
+		"path" : "pages/team_detail/team_detail",
+		"style": {
+			"navigationBarTitleText" : "Team Stat"
+		}
 	},
 	{
-		"path" : "pages/coach_detail/coach_detail"
+		"path" : "pages/coach_detail/coach_detail",
+		"style": {
+			"navigationBarTitleText" : "Coach Stat"
+		}
 	},
 	{
-		"path": "pages/player_detail/player_detail"
+		"path": "pages/player_detail/player_detail",
+		"style": {
+			"navigationBarTitleText" : "Player Stat"
+		}
 		
 	},
 	{
-		"path": "pages/player_detail/career_detail"
+		"path": "pages/player_detail/career_detail",
+		"style": {
+			"navigationBarTitleText" : "Career Stat"
+		}
+	},
+	{
+		"path" : "pages/player_detail/test",
+		"style": {
+			"navigationBarTitleText" : "echarts-renderjs"
+		}
 	}
 	
 	],
 	
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8",
 		"app-plus": {

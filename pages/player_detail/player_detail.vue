@@ -12,7 +12,7 @@
 				<image :src="player_img" class="player_img"></image>
 			</view>
 		</uni-card>
-		<button @click="to_career_detail" class="to_career_button">Career Data</button>
+		<button @click="to_career_detail(id)" class="to_career_button">Career Data</button>
 	</view>
 </template>
 
@@ -26,14 +26,20 @@
 				height : '191cm',
 				weight : '84kg',
 				player_img : 'https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png',
-				player_img_full : 'https://marstranslator-images-sz.oss-cn-shenzhen.aliyuncs.com/cover_images/15849649128543.jpg'
+				player_img_full : 'https://marstranslator-images-sz.oss-cn-shenzhen.aliyuncs.com/cover_images/15849649128543.jpg',
+				id : 100,
 			}
 		},
+		onLoad(option){
+			// console.log(option.id)
+			this.id = option.id;
+			
+		},
 		methods:{
-			to_career_detail() {
+			to_career_detail(id) {
 				uni.navigateTo({
-					url: './career_detail',
-					success: res => {console.log(res)},
+					url: './career_detail?id='+id,
+					success: res => {},
 					fail: () => {},
 					complete: () => {}
 				});
