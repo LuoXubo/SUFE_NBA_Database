@@ -36,7 +36,8 @@
 							<img src="../../static/ct_1.png" alt="">
 							Coach Photo
 						</view>
-						<image :src="coach_img" style="width: 400upx; height: 400upx; margin-top: 100upx; margin-left: 100upx;"></image>
+						<image :src="coach_img"
+							style="width: 400upx; height: 400upx; margin-top: 100upx; margin-left: 100upx;"></image>
 					</view>
 					<view class="left_2">
 						<!-- 左上边框-->
@@ -132,6 +133,7 @@
 		},
 
 		onLoad(option) {
+			_self = this;
 			let id = option.id;
 			uni.request({
 				url: '/api/coach_detail/',
@@ -141,7 +143,6 @@
 				},
 				success: res => {
 					var data = res.data.data;
-					// console.log(data);
 					this.coach_img = data.photo;
 					this.coach_name = data.name;
 					this.coach_full_img = data.model_3d;
@@ -189,7 +190,6 @@
 				series.data = temp;
 				Line.categories = categories;
 				Line.series = series;
-
 				let Pie = {
 					series: []
 				};
@@ -206,6 +206,7 @@
 				_self.showPie("canvasPie", Pie);
 			},
 			showLine(canvasId, chartData) {
+				console.log('·······');
 				canvaLine = new uCharts({
 					context: uni.createCanvasContext(canvasId, _self),
 					$this: _self,
@@ -213,26 +214,32 @@
 					type: 'line',
 					fontSize: 11,
 					legend: true,
-					dataLabel: false,
+					dataLabel: true,
 					dataPointShape: true,
-					background: '#FFFFFF',
-					pixelRatio: _self.pixelRatio,
-					categories: chartData.categories,
-					series: chartData.series,
+					background: '#55ffff',
+					// pixelRatio: _self.pixelRatio,
+					// categories: chartData.categories,
+					// series: chartData.series,
+					categories : ['12', '23'],
+					series : [{
+						name : '123',
+						data : [12, 23],
+						color : 'white'
+					}],
 					animation: true,
 					xAxis: {
 						type: 'grid',
-						gridColor: '#CCCCCC',
+						gridColor: '#ff5500',
 						gridType: 'dash',
 						dashLength: 8
 					},
 					yAxis: {
 						gridType: 'dash',
-						gridColor: '#CCCCCC',
+						gridColor: '#ff5500',
 						dashLength: 8,
 					},
-					width: 300,
-					height: 300,
+					width: 500,
+					height: 500,
 					extra: {
 						line: {
 							type: 'straight'

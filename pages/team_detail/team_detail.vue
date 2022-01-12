@@ -66,7 +66,8 @@
 						</view>
 						<view class="coach_info">
 							<view style="font-size: 50upx; color: white; margin-top: 100upx; margin-left: 300upx;">
-								{{coach_name}}</view>
+								{{coach_name}}
+							</view>
 							<image class="coach_img" :src="coach_img" @tap="to_coach_detail(coach_id)"></image>
 						</view>
 					</view>
@@ -97,14 +98,14 @@
 							<img src="../../static/ct_2.png" alt="">
 							Team Stat
 						</view>
-						<view style="color: white; font-size: 40upx; margin-top: 70upx; margin-left: 30%;">
+						<view style="color: white; font-size: 40upx; margin-top: 70upx; margin-left: 800upx;">
 							<picker @change="StatType" :range="StatTypeArray">
 								<label>Stat type : </label>
 								<label>{{StatTypeArrayType}}</label>
 							</picker>
 						</view>
 						<canvas canvas-id="canvasLine" id="canvasLine"
-							style="margin-left: 17%; height: 1000upx; width: 1000upx;"></canvas>
+							style="margin-left: 500upx; margin-top: 100upx; height: 1000upx; width: 1000upx;"></canvas>
 					</view>
 				</view>
 				<view class="main_right fr">
@@ -133,12 +134,15 @@
 							<img src="../../static/ct_4.png" alt="">
 							Players
 						</view>
-						<uni-swiper-dot :info="player" :current="current" field="Player" :mode="mode" style="height: 1200upx;">
-							<swiper style="height: 1000upx;" @change="change"> 
+						<uni-swiper-dot :info="player" :current="current" field="Player" :mode="mode"
+							style="height: 1200upx;">
+							<swiper style="height: 1000upx;" @change="change">
 								<swiper-item v-for="(item, index) in player" :key="index">
 									<view style="color: white;">
-										<image :src="item.photo" class="player_img" @tap="to_player_detail(item.id)"></image>
-										<view style="font-size: 50upx; margin-left: 300upx; margin-top: 100upx;">{{item.name}}
+										<image :src="item.photo" class="player_img" @tap="to_player_detail(item.id)">
+										</image>
+										<view style="font-size: 50upx; margin-left: 300upx; margin-top: 100upx;">
+											{{item.name}}
 										</view>
 										<view style="font-size: 40upx; margin-left: 350upx; margin-top: 50upx;">
 											Number : {{item.uniform_number}}</view>
@@ -255,7 +259,7 @@
 				var three_rate = [];
 				var one_rate = [];
 				var teamdata = this.team_data;
-				for (var i = 0; i < teamdata.length; i++) {
+				for (var i = teamdata.length - 1; i >= 0; i--) {
 					if (teamdata[i].match_type != '常规赛') {
 						continue;
 					}

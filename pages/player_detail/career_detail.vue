@@ -173,14 +173,16 @@
 		
 		onLoad(option){
 			var id = option.id;
+			console.log(id);
 			uni.request({
-				url: '/api/player_career',
+				url: '/api/player_career/',
 				method: 'GET',
 				data: {
 					id : id
 				},
 				success: res => {
 					let data = res.data.data;
+					console.log(data);
 					this.name = data.name;
 					this.player_img = data.photo;
 					this.season_data = data.detail;
