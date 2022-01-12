@@ -1,14 +1,19 @@
 {
-	"pages": [
-	{
+	"pages": [{
 		"path": "pages/index/index"
 	},
 	{
-		"path" : "pages/team_detail/team_detail",
-		"style": {
-			"navigationBarTitleText" : "Team Stat"
-		}
+		"path" : "pages/team_detail/team_detail"
 	},
+	/* c--rankinglist */
+	{
+		"path" : "pages/ranking_list/rankinglist"
+	},
+	{
+		"path" : "pages/compare/compare"
+	},
+	/*  */
+	
 	{
 		"path" : "pages/coach_detail/coach_detail",
 		"style": {
@@ -34,13 +39,13 @@
 			"navigationBarTitleText" : "echarts-renderjs"
 		}
 	}
-	
 	],
-	
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8",
+		"navigationStyle":"custom",
+		/* "navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8", */
+		"backgroundColor": "#F7F7F7",
 		"app-plus": {
 			"background": "#efeff4"
 		}

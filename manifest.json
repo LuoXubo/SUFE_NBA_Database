@@ -1,6 +1,6 @@
 {
     "name" : "NBA database",
-    "appid" : "__UNI__D5BF2D5",
+    "appid" : "__UNI__956C470",
     "description" : "",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -60,7 +60,21 @@
             "base" : "./",
             "mode" : "hash"
         },
-        "title" : "test",
-        "template" : ""
+        "title" : "NBA_Database",
+        "template" : "",
+        "devServer" : {
+            "port" : "",
+            "disableHostCheck" : true,
+            "proxy" : {
+                "/api" : {
+                    "target" : "http://121.4.230.11:8002/api",
+                    "changeOrigin" : true,
+                    "ws" : true,
+                    "pathRewrite" : {
+                        "^/api" : ""
+                    }
+                }
+            }
+        }
     }
 }
