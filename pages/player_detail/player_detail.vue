@@ -125,14 +125,13 @@
 				cWidth : '',
 				cHeight : '',
 				pixelRatio : 1,
-				name : 'Stephen Curry',
-				number : '30',
-				position : 'Guard',
-				height : '191cm',
-				weight : '84kg',
-				player_img : 'https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png',
-				player_img_full : 'https://marstranslator-images-sz.oss-cn-shenzhen.aliyuncs.com/cover_images/15849649128543.jpg',
-				id : 100,
+				name : '',
+				number : '',
+				position : '',
+				height : '',
+				weight : '',
+				player_img : '',
+				id : '',
 				detail : {
 					season : '20-21',
 					team : 'Warriors',
@@ -157,29 +156,31 @@
 			this.id = option.id;
 			this.cWidth = uni.upx2px(500);
 			this.cHeight = uni.upx2px(500);
-			// uni.request({
-			// 	url: '',
-			// 	method: 'GET',
-			// 	data: {
-			// 		id : this.id
-			// 	},
-			// 	success: res => {
-			// 		let data = res.data;
-			// 		this.player_img = data.photo;
-			// 		this.name = data.name;
-			// 		this.position = data.position;
-			// 		this.height = datllla.height;
-			// 		this.weight = data.weight;
-			// 		this.birthday = data.date_of_birth;
-			// 		this.detail = data.detail;
-			// 	},
-			// 	fail: (err) => {
-			// 		console.log(err);
-			// 	},
-			// 	complete: () => {}
-			// });
+			uni.request({
+				url: '/api/player_detail/',
+				method: 'GET',
+				data: {
+					id : this.id
+				},
+				success: res => {
+					let data = res.data.data;
+					console.log(data)
+					this.player_img = data.photo;
+					this.name = data.name_e;
+					this.position = data.position;
+					this.height = data.height;
+					this.weight = data.weight;
+					this.birthday = data.date_of_birth;
+					this.detail = data.detail;
+					this.number = data.uniform_number;
+					this.age = data.age;
+				},
+				fail: (err) => {
+					console.log(err);
+				},
+				complete: () => {}
+			});
 			_self = this;
-			
 			this.getServerData();
 		},
 		methods:{
@@ -192,6 +193,8 @@
 				});
 			},
 			getServerData(){
+				console.log(this.name)
+				console.log(this.detail)
 				var scoreCat = ['Hit Rate', 'Three Point Rate', 'Penalty Rate'];
 				var otherCat = ['Rebound', 'Assist', 'Block', 'Steal'];
 				var scoreSe = [{

@@ -3,19 +3,32 @@
 		<view class="header">
 			<view class="bg_header">
 			    <view class="t_title">
-			        Player Stat
+			        SUFE Basketball Database
 			    </view> 
 			</view>
 		</view>
 		<view class="topindex">
 			<view style="display: flex; flex-direction: row;">
-				<view style="font-size: 50upx; color: #007AFF; margin-left: 20%;">Home</view>
-				<view style="font-size: 50upx; color: #ff00ff; margin-left: 20%;" @tap="to_leaderboard">Leaderboard</view>
-				<view style="font-size: 50upx; color: #ff00ff; margin-left: 20%;" @tap="to_comparison">Player Comparison</view>
+				<view class="big-index-1" style="margin-left: 100upx; display: flex; flex-direction: row;">
+					<view class="main_title">
+						<img src="../../static/ct_1.png" alt="">
+						Home
+					</view>
+					<view class="main_title" @tap="to_leaderboard">
+						<img src="../../static/ct_1.png"  alt="">
+						Leader Board
+					</view>
+					<view class="main_title" @tap="to_comparison">
+						<img src="../../static/ct_1.png" alt="">
+						Player Comparison
+					</view>
+					
+				</view>
 			</view>
 		</view>
 		
-		<view class="big-index-1">
+		
+		<view class="big-index-1" style="margin-top: 100upx;">
 			<ul>
 				<image :src="teams[0].photo" class="team-img1" @tap="to_team_detail(teams[0].id)"></image>
 				<image :src="teams[1].photo" class="team-img2" @tap="to_team_detail(teams[1].id)"></image>
@@ -205,7 +218,6 @@
 			var that = this;
 			uni.request({
 				url: "/api/team",
-				//url: 'http://121.4.230.11:8002/api/team/',
 				method: 'GET',
 				data: {},
 				success(r) {
@@ -220,7 +232,6 @@
 						that.teams.push(eachteam);
 					}
 					
-					// this.teams = res.data;
 				},
 				fail: () => {},
 				complete: () => {}
@@ -297,6 +308,28 @@
 	.team{
 		background-color: #fff;
 		display: block;
+	}
+	.main_title{
+		width: 400upx;
+		height: 100upx;
+		line-height: 50upx;
+		background-color: #2C58A6;
+		border-radius: 40upx;
+		top: 0upx;
+		left:50upx;
+		margin-left: 400upx;
+		color:#fff;
+		font-size: 40upx;
+		font-weight: 600;
+		box-sizing: border-box;
+		padding-left: 45upx;
+		text-align: center;
+		margin-top: 50upx;
+	}
+	.main_title img{
+		position: relative;
+		top: 0upx;
+		left: -50upx;
 	}
 	.header{
 	    width: 100%;

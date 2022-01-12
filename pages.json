@@ -32,12 +32,6 @@
 		"style": {
 			"navigationBarTitleText" : "Career Stat"
 		}
-	},
-	{
-		"path" : "pages/player_detail/test",
-		"style": {
-			"navigationBarTitleText" : "echarts-renderjs"
-		}
 	}
 	],
 	"globalStyle": {

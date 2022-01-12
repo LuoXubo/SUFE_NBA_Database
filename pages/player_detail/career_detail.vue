@@ -171,23 +171,25 @@
 			};
 		},
 		
-		onLoad(id){
-			this.id = id;
-			// uni.request({
-			// 	url: '',
-			// 	method: 'GET',
-			// 	data: {
-			// 		id : id
-			// 	},
-			// 	success: res => {
-			// 		let data = res.data;
-			// 		this.name = data.name;
-			// 		this.player_img = data.photo;
-					
-			// 	},
-			// 	fail: () => {},
-			// 	complete: () => {}
-			// });
+		onLoad(option){
+			var id = option.id;
+			uni.request({
+				url: '/api/player_career',
+				method: 'GET',
+				data: {
+					id : id
+				},
+				success: res => {
+					let data = res.data.data;
+					this.name = data.name;
+					this.player_img = data.photo;
+					this.season_data = data.detail;
+				},
+				fail: (err) => {
+					console.log(err)
+				},
+				complete: () => {}
+			});
 			_self = this;
 			this.cWidth=uni.upx2px(750);
 			this.cHeight=uni.upx2px(500);
