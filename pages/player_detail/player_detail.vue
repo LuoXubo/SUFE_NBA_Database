@@ -66,8 +66,8 @@
 							Player Stat
 						</view>
 						<view style="display: flex; flex-direction: row;">
-							<canvas canvas-id="ScoreCanva" id="ScoreCanva" style="height: 1000upx; width: 800upx;"></canvas>
-							<canvas canvas-id="OtherCanva" id="OtherCanva" style="height: 1000upx; width: 1000upx;"></canvas>
+							<canvas canvas-id="ScoreCanva" id="ScoreCanva" style="height: 500px; width: 400px; float: left;"></canvas>
+							<canvas canvas-id="OtherCanva" id="OtherCanva" style="height: 500px; width: 400px; float: right;"></canvas>
 						</view>
 						<button @click="to_career_detail(id)" class="to_career_button">Career Data</button>
 					</view>
@@ -222,8 +222,8 @@
 					// pixelRatio : _self.pixelRatio,
 					// width : _self.cWidth * _self.pixelRatio,
 					// height : _self.cHeight * _self.pixelRatio,
-					width : 500,
-					height : 500
+					width : 380,
+					height : 400
 				});
 				
 			}

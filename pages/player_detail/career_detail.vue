@@ -65,11 +65,11 @@
 							<img src="../../static/ct_2.png" alt="">
 							Career Stat
 						</view>
-						<picker @change="StatType" :range="StatTypeArray" style="margin-left: 700upx; margin-top: 100upx; font-size: 40upx; color: white;">
+						<picker @change="StatType" :range="StatTypeArray" style="margin-left: 30%; margin-top: 100upx; font-size: 40upx; color: white;">
 							<label>Stat type : </label>
 							<label class="">{{StatTypeArrayType}}</label>
 						</picker>
-						<canvas canvas-id="canvasLine" id="canvasLine" @touchstart="touchLine" style=" height: 1000upx; width: 1000upx; margin-top: 100upx; margin-left: 500upx;"></canvas>
+						<canvas canvas-id="canvasLine" id="canvasLine" @touchstart="touchLine" style=" height: 1000upx; width: 1000upx; margin-top: 100upx; margin-left: 17%;"></canvas>
 					</view>
 				</view>
 				<view class="main_right fr">

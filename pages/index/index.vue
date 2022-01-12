@@ -320,7 +320,7 @@
 	}
 	.big-index-1 {
 		position: relative;
-		left: 900upx;  
+		left: 15%;  
 		line-height: 1; 
 		min-width: 818upx; 
 		height:300upx; 

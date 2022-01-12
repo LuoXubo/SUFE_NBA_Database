@@ -96,13 +96,13 @@
 							<img src="../../static/ct_2.png" alt="">
 							Team Stat
 						</view>
-						<view style="color: white; font-size: 40upx; margin-top: 70upx; margin-left: 800upx;">
+						<view style="color: white; font-size: 40upx; margin-top: 70upx; margin-left: 30%;">
 							<picker @change="StatType" :range="StatTypeArray">
 								<label>Stat type : </label>
 								<label>{{StatTypeArrayType}}</label>
 							</picker>
 						</view>
-						<canvas canvas-id="canvasLine" id="canvasLine" style="margin-left: 500upx; height: 1000upx; width: 1000upx;"></canvas>
+						<canvas canvas-id="canvasLine" id="canvasLine" style="margin-left: 17%; height: 1000upx; width: 1000upx;"></canvas>
 					</view>
 				</view>
 				<view class="main_right fr">
@@ -240,28 +240,28 @@
 		},
 		onLoad(team_id) {
 			_self = this;
-			// console.log(team_id);
-			// uni.request({
-			// 	url: '',
-			// 	method: 'GET',
-			// 	data: {},
-			// 	success: res => {
-			// 		var data = res.data;
-			// 		this.team_img = data.photo;
-			// 		this.team_name = data.name_e;
-			// 		this.team_name_cn = data.name_c;
-			// 		this.team_info = data.slogan;
-			// 		this.team_city = data.area;
-			// 		this.stadium = data.stadium;
-			// 		this.coach_img = data.coach.photo;
-			// 		this.coach_name = data.coach.name;
-			// 		this.player = data.player;
-			// 		this.team_data = data.teamdata;
-			// 	},
-			// 	fail: (err) => {console.log(err)},
-			// 	complete: () => {}
-			// });
-			this.getServerData();
+			console.log(team_id);
+			/* uni.request({
+				url: '/api/team_detail',
+				method: 'GET',
+				data: {},
+				success: res => {
+				var data = res.data;
+				this.team_img = data.photo;
+				this.team_name = data.name_e;
+				this.team_name_cn = data.name_c;
+				this.team_info = data.slogan;
+				this.team_city = data.area;
+				this.stadium = data.stadium;
+				this.coach_img = data.coach.photo;
+				this.coach_name = data.coach.name;
+				this.player = data.player;
+				this.team_data = data.teamdata;
+				},
+			fail: (err) => {console.log(err)},
+			complete: () => {}
+			});
+			this.getServerData(); */
 		},
 		methods:{
 			to_coach_detail(id){
