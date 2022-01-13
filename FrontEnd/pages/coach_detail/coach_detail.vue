@@ -191,9 +191,9 @@
 				categories.reverse();
 				temp.reverse();
 				let series = [{
-					"name": 'win rate(%)',
-					"data": temp,
-					"color": '#ffffff'
+					name: 'win rate(%)',
+					data: temp,
+					color: '#ffffff'
 				}];
 				Line.categories = categories;
 				Line.series = series;
@@ -202,12 +202,12 @@
 				};
 				let avg_data = _self.avg_data;
 				Pie.series.push({
-					"name": "Win",
-					"data": avg_data.win
+					name: "Win",
+					data: avg_data.win
 				});
 				Pie.series.push({
-					"name": "Lose",
-					"data": avg_data.lose
+					name: "Lose",
+					data: avg_data.lose
 				});
 				_self.showLine("canvasLine", Line);
 				_self.showPie("canvasPie", Pie);

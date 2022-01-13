@@ -38,6 +38,35 @@
 						</view>
 						<image :src="player_img" class="player_img"></image>
 					</view>
+					<view class="left_2">
+						<view class="t_line_box">
+							<i class="t_l_line"></i>
+							<i class="l_t_line"></i>
+						</view>
+						<view class="t_line_box">
+							<i class="t_r_line"></i>
+							<i class="r_t_line"></i>
+						</view>
+						<view class="t_line_box">
+							<i class="l_b_line"></i>
+							<i class="b_l_line"></i>
+						</view>
+						<view class="t_line_box">
+							<i class="r_b_line"></i>
+							<i class="b_r_line"></i>
+						</view>
+						<view class="main_title">
+							<img src="../../static/ct_1.png" alt="">
+							Player Information
+						</view>
+						<view style=" margin-top: 100upx; text-align: center; color: white;">
+							<view style="font-size: 50upx;">{{name}}</view>
+							<view style="font-size: 40upx; margin-top: 20upx;">Number : {{number}}</view>
+							<view style="font-size: 40upx; margin-top: 20upx;">{{position}}</view>
+							<view style="font-size: 40upx; margin-top: 20upx;">{{height}}</view>
+							<view style="font-size: 40upx; margin-top: 20upx;">{{weight}}</view>
+						</view>
+					</view>
 				</view>
 				<view class="main_center fl">
 					<view class="center_text" style="position: relative;">
@@ -96,15 +125,9 @@
 						</view> 
 						<view class="main_title" style="width:220px;">
 							<img src="../../static/ct_4.png" alt="">
-							 Information
+							 Stats Prediction
 						</view>
-						<view style=" margin-top: 100upx; text-align: center; color: white;">
-							<view style="font-size: 50upx;">{{name}}</view>
-							<view style="font-size: 40upx; margin-top: 20upx;">{{number}}</view>
-							<view style="font-size: 40upx; margin-top: 20upx;">{{position}}</view>
-							<view style="font-size: 40upx; margin-top: 20upx;">{{height}}</view>
-							<view style="font-size: 40upx; margin-top: 20upx;">{{weight}}</view>
-						</view>
+						<canvas canvas-id="canvasRadar" id="canvasRadar" style="height: 500upx; width: 500upx;"></canvas>
 					</view>
 				</view>
 			</view>
@@ -116,6 +139,7 @@
 	import uCharts from '../../components/u-charts/u-charts.js';
 	var	_self;
 	var canvaLine = null;
+	var canvaRadar = null;
 	export default {
 		data() {
 			return {
@@ -132,9 +156,8 @@
 				height : '',
 				weight : '',
 				player_img : '',
-				season_data : [
-					
-				]
+				season_data : [],
+				predict_data : []
 			};
 		},
 		
@@ -151,18 +174,22 @@
 					let data = res.data.data;
 					console.log(data);
 					this.name = data.name_e;
+					this.number = data.uniform_number;
 					this.player_img = data.photo;
 					this.season_data = data.detail;
+					this.predict_data = data.predict;
+					
+					_self = this;
+					this.cWidth=uni.upx2px(750);
+					this.cHeight=uni.upx2px(500);
+					this.getServerData();
 				},
 				fail: (err) => {
 					console.log(err)
 				},
 				complete: () => {}
 			});
-			_self = this;
-			this.cWidth=uni.upx2px(750);
-			this.cHeight=uni.upx2px(500);
-			this.getServerData();
+			
 		},
 		
 		methods:{
@@ -203,7 +230,15 @@
 					color : '#ff5500'
 				});
 				
+				var pre = this.predict_data;
 				let Line = {categories:[], series:[]};
+				let Radar = {
+					categories:['Assists', 'Rebounds', 'Snatch'], 
+					series:[{
+						name : pre.season + "Prediction" ,
+						data : [pre.assists.toFixed(2), pre.total_rebounds.toFixed(2), pre.snatch.toFixed(2)]
+					}]
+				};
 				Line.categories = categories;
 				if(StatType == 1){
 					Line.series = [series[0]];
@@ -215,6 +250,7 @@
 					Line.series = [series[2]];
 				}
 				_self.showLine('canvasLine', Line);
+				_self.showRadar('canvasRadar', Radar);
 			},
 			showLine(canvasId, chartData){
 				canvaLine = new uCharts({
@@ -246,16 +282,41 @@
 					    min:0,
 					    max:40,
 					},
-					// width: _self.cWidth*_self.pixelRatio,
-					// height: _self.cHeight*_self.pixelRatio,
 					width : 500,
 					height : 500,
 					
 					extra: {
+						markLine : {
+							type : 'dash',
+							data : [{
+								value : _self.predict_data.total_rebounds,
+								color : "#ffaa7f",
+								label : true
+							}]
+						},
 					    line:{
 					        type: 'straight'
 					    }
 					}
+				});
+			},
+			showRadar(canvasId, chartData) {
+				// console.log(chartData);
+				canvaRadar = new uCharts({
+					$this: _self,
+					canvasId: canvasId,
+					context: uni.createCanvasContext(canvasId, _self),
+					type: 'radar',
+					fontSize: 11,
+					legend: true,
+					background: '#FFFFFF',
+					categories : chartData.categories,
+					series: chartData.series,
+					animation: true,
+					width: 300,
+					height: 300,
+					dataLabel: true,
+				
 				});
 			},
 			touchLine(e){
