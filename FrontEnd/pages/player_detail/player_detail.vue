@@ -254,7 +254,7 @@
 		height: 100upx; 
 		font-size: 40upx; 
 		border-radius: 20upx;
-		background-color: #18BC37;
+		background-color: #0a3472;
 		margin-top: 100upx;
 		color: white;
 	}

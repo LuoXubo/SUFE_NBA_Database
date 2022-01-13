@@ -98,14 +98,14 @@
 							<img src="../../static/ct_2.png" alt="">
 							Team Stat
 						</view>
-						<view style="color: white; font-size: 40upx; margin-top: 70upx; margin-left: 800upx;">
+						<view style="color: white; font-size: 40upx; margin-top: 70upx; margin-left: 30%;">
 							<picker @change="StatType" :range="StatTypeArray">
 								<label>Stat type : </label>
 								<label>{{StatTypeArrayType}}</label>
 							</picker>
 						</view>
 						<canvas canvas-id="canvasLine" id="canvasLine"
-							style="margin-left: 500upx; margin-top: 100upx; height: 1000upx; width: 1000upx;"></canvas>
+							style="margin-left: 17%; margin-top: 100upx; height: 1000upx; width: 1000upx;"></canvas>
 					</view>
 				</view>
 				<view class="main_right fr">
@@ -134,6 +134,7 @@
 							<img src="../../static/ct_4.png" alt="">
 							Players
 						</view>
+						<view class="little">Slide right and turn the page to see more players</view>
 						<uni-swiper-dot :info="player" :current="current" field="Player" :mode="mode"
 							style="height: 1200upx;">
 							<swiper style="height: 1000upx;" @change="change">
@@ -917,5 +918,11 @@
 		float: left;
 		left: 66%;
 		height: 20px;
+	}
+	.little{
+		position: relative;
+		text-align: center;
+		top: 20px;
+		color: #fff;
 	}
 </style>

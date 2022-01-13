@@ -9,7 +9,7 @@
 		</view>
 		<view class="topindex">
 			<view style="display: flex; flex-direction: row;">
-				<view class="big-index-1" style="margin-left: 100upx; display: flex; flex-direction: row;">
+				<view class="big-index-0" style="display: flex; flex-direction: row;">
 					<view class="main_title">
 						<img src="../../static/ct_1.png" alt="">
 						Home
@@ -289,8 +289,8 @@
 		/* padding: 20upx; */
 		/* font-size: 14upx; */
 		line-height: 24upx;
-		height: 100%;
-		width: 100%;
+		/* height: 100%; */
+		/* width: 100%; */
 		background: url("../../static/bg01warp.png") 50% 50% no-repeat; 
 		background-size: 100% 100%;
 	}
@@ -317,7 +317,7 @@
 		border-radius: 40upx;
 		top: 0upx;
 		left:50upx;
-		margin-left: 400upx;
+		margin-left: 440upx;
 		color:#fff;
 		font-size: 40upx;
 		font-weight: 600;
@@ -350,6 +350,15 @@
 	    font-size: 2.5em;
 	    line-height: 80px;
 	    color: #fff;
+	}
+	.big-index-0 {
+		position: relative;
+		width: 100%;
+		/* left: 8%; */
+		line-height: 1; 
+		min-width: 818upx; 
+		height:200upx; 
+		overflow: hidden;
 	}
 	.big-index-1 {
 		position: relative;

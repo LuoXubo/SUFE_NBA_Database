@@ -26,14 +26,14 @@
 		            <b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
 		            <strong @click="three_point_hit_percentage">three point hit rate</strong>
 		        </li>
-		        <li>
-		            <b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-		            <strong @click="penalty_hit_percentage">free throw percentage</strong>
-		        </li>
 			</ul>
 		</view>
 		<view class="big-index-1">
 		    <ul>
+				<li>
+				    <b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
+				    <strong @click="penalty_hit_percentage">free throw percentage</strong>
+				</li>
 		        <li>
 		            <b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
 		            <strong @click="assists">number of assists</strong>
@@ -45,10 +45,6 @@
 			    <li>
 			        <b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
 			        <strong @click="blocks">number of caps</strong>
-			    </li>
-			    <li>
-			        <b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-			        <strong @click="miss">number of errors</strong>
 			    </li>
 			    <li>
 			        <b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
@@ -164,7 +160,7 @@
 			return {
 				current: 1,
 				player: [
-					{
+					/* {
 						img: 'https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png',
 						number: 30,
 						uniform_number: 1,
@@ -173,14 +169,14 @@
 					},
 					{
 						img: 'https://cdn.nba.com/headshots/nba/latest/1040x760/203110.png',
-						number: 23,
+						number: 30,
 						uniform_number: 1,
 						name: 'Draymond Green',
 						id: 2
 					},
 					{
 						img: 'https://cdn.nba.com/headshots/nba/latest/1040x760/202691.png',
-						number: 11,
+						number: 30,
 						uniform_number: 1,
 						name: 'Klay Thompson',
 						id: 3
@@ -234,6 +230,7 @@
 						name: 'Stephen Curry',
 						id: 10
 					},
+				 */
 				],
 				cWidth: '',
 				cHeight: '',
@@ -244,7 +241,7 @@
 			_self = this;
 			this.cWidth = uni.upx2px(750);
 			this.cHeight = uni.upx2px(375);
-			this.showColumn("canvasColumn");
+			var that = this;
 			uni.request({
 				url: "/api/rank/",
 				method: "GET",
@@ -255,19 +252,22 @@
 					console.log("yes");
 					for (var i = 0; i < 10; i++) {
 						var eachplayer = {id:'', img:'', name:'', number:'', uniform_number:''};
-						eachplayer.id = r.data[i].id;
-						eachplayer.img = r.data[i].photo;
-						eachplayer.name = r.data[i].name;
-						eachplayer.uniform_number = r.data[i].uniform_number;
-						eachplayer.number = r.data[i].score;
+						eachplayer.id = r.data.data[i].id;
+						eachplayer.img = r.data.data[i].photo;
+						eachplayer.name = r.data.data[i].name;
+						eachplayer.uniform_number = r.data.data[i].uniform_number;
+						eachplayer.number = r.data.data[i].score;
 						that.player.push(eachplayer);
 					}
+					console.log("=======");
 					console.log(r);
+					that.showColumn("canvasColumn");
 				}
 			})
+			
 		},
 		methods: {
-			async showColumn(canvasId){
+			showColumn(canvasId){
 				var that = this;
 				var name = "";
 				if (that.current == 1) { name = "score";}
@@ -297,16 +297,16 @@
 						"name": name,
 						"color": "#0067e6",
 						"textColor": "white",
-						"data": [_self.player[0].number,
-								_self.player[1].number,
-								_self.player[2].number,
-								_self.player[3].number,
-								_self.player[4].number,
-								_self.player[5].number,
-								_self.player[6].number,
-								_self.player[7].number,
-								_self.player[8].number,
-								_self.player[9].number]
+						"data": [that.player[0].number,
+								that.player[1].number,
+								that.player[2].number,
+								that.player[3].number,
+								that.player[4].number,
+								that.player[5].number,
+								that.player[6].number,
+								that.player[7].number,
+								that.player[8].number,
+								that.player[9].number]
 					}],
 					xAxis: {
 						disableGrid:true,
@@ -314,16 +314,16 @@
 					yAxis: {
 						data: [{
 							min: 0,
-							max: Math.max(_self.player[0].number,
-							_self.player[1].number,
-							_self.player[2].number,
-							_self.player[3].number,
-							_self.player[4].number,
-							_self.player[5].number,
-							_self.player[6].number,
-							_self.player[7].number,
-							_self.player[8].number,
-							_self.player[9].number) + 2,
+							max: Math.max(that.player[0].number,
+								that.player[1].number,
+								that.player[2].number,
+								that.player[3].number,
+								that.player[4].number,
+								that.player[5].number,
+								that.player[6].number,
+								that.player[7].number,
+								that.player[8].number,
+								that.player[9].number) + 2,
 						}]
 					},
 					dataLabel: true,
@@ -342,7 +342,7 @@
 				that.current = 1;
 				that.player = [];
 				uni.request({
-					url: "http://127.0.0.1:8000/api/rank/",
+					url: "/api/rank/",
 					method: "GET",
 					data: {
 						type: "score",
@@ -350,24 +350,24 @@
 					success(r) {
 						for (var i = 0; i < 10; i++) {
 							var eachplayer = {id:'', img:'', name:'', number:'', uniform_number:''};
-							eachplayer.id = r.data[i].id;
-							eachplayer.img = r.data[i].photo;
-							eachplayer.name = r.data[i].name;
-							eachplayer.uniform_number = r.data[i].uniform_number;
-							eachplayer.number = r.data[i].score;
+							eachplayer.id = r.data.data[i].id;
+							eachplayer.img = r.data.data[i].photo;
+							eachplayer.name = r.data.data[i].name;
+							eachplayer.uniform_number = r.data.data[i].uniform_number;
+							eachplayer.number = r.data.data[i].score;
 							that.player.push(eachplayer);
 						}
 						console.log(r);
+						that.showColumn("canvasColumn");
 					}
 				});
-				that.showColumn("canvasColumn");
 			},
 			time: function(r) {
 				var that = this;
 				that.current = 2;
 				that.player = [];
 				uni.request({
-					url: "http://127.0.0.1:8000/api/rank/",
+					url: "/api/rank/",
 					method: "GET",
 					data: {
 						type: "time",
@@ -375,24 +375,24 @@
 					success(r) {
 						for (var i = 0; i < 10; i++) {
 							var eachplayer = {id:'', img:'', name:'', number:'', uniform_number:''};
-							eachplayer.id = r.data[i].id;
-							eachplayer.img = r.data[i].photo;
-							eachplayer.name = r.data[i].name;
-							eachplayer.uniform_number = r.data[i].uniform_number;
-							eachplayer.number = r.data[i].time;
+							eachplayer.id = r.data.data[i].id;
+							eachplayer.img = r.data.data[i].photo;
+							eachplayer.name = r.data.data[i].name;
+							eachplayer.uniform_number = r.data.data[i].uniform_number;
+							eachplayer.number = r.data.data[i].time;
 							that.player.push(eachplayer);
 						}
 						console.log(r);
+						that.showColumn("canvasColumn");
 					}
 				});
-				that.showColumn("canvasColumn");
 			},
 			total_rebounds: function(r) {
 				var that = this;
 				that.current = 3;
 				that.player = [];
 				uni.request({
-					url: "http://127.0.0.1:8000/api/rank/",
+					url: "/api/rank/",
 					method: "GET",
 					data: {
 						type: "total_rebounds",
@@ -400,24 +400,24 @@
 					success(r) {
 						for (var i = 0; i < 10; i++) {
 							var eachplayer = {id:'', img:'', name:'', number:'', uniform_number:''};
-							eachplayer.id = r.data[i].id;
-							eachplayer.img = r.data[i].photo;
-							eachplayer.name = r.data[i].name;
-							eachplayer.uniform_number = r.data[i].uniform_number;
-							eachplayer.number = r.data[i].total_rebounds;
+							eachplayer.id = r.data.data[i].id;
+							eachplayer.img = r.data.data[i].photo;
+							eachplayer.name = r.data.data[i].name;
+							eachplayer.uniform_number = r.data.data[i].uniform_number;
+							eachplayer.number = r.data.data[i].total_rebounds;
 							that.player.push(eachplayer);
 						}
 						console.log(r);
+						that.showColumn("canvasColumn");
 					}
 				});
-				that.showColumn("canvasColumn");
 			},
 			hit_percentage: function(r) {
 				var that = this;
 				that.current = 4;
 				that.player = [];
 				uni.request({
-					url: "http://127.0.0.1:8000/api/rank/",
+					url: "/api/rank/",
 					method: "GET",
 					data: {
 						type: "hit_percentage",
@@ -425,24 +425,24 @@
 					success(r) {
 						for (var i = 0; i < 10; i++) {
 							var eachplayer = {id:'', img:'', name:'', number:'', uniform_number:''};
-							eachplayer.id = r.data[i].id;
-							eachplayer.img = r.data[i].photo;
-							eachplayer.name = r.data[i].name;
-							eachplayer.uniform_number = r.data[i].uniform_number;
-							eachplayer.number = r.data[i].hit_percentage;
+							eachplayer.id = r.data.data[i].id;
+							eachplayer.img = r.data.data[i].photo;
+							eachplayer.name = r.data.data[i].name;
+							eachplayer.uniform_number = r.data.data[i].uniform_number;
+							eachplayer.number = r.data.data[i].hit_percentage;
 							that.player.push(eachplayer);
 						}
 						console.log(r);
+						that.showColumn("canvasColumn");
 					}
 				});
-				that.showColumn("canvasColumn");
 			},
 			three_point_hit_percentage: function(r) {
 				var that = this;
 				that.current = 5;
 				that.player = [];
 				uni.request({
-					url: "http://127.0.0.1:8000/api/rank/",
+					url: "/api/rank/",
 					method: "GET",
 					data: {
 						type: "three_point_hit_percentage",
@@ -450,24 +450,24 @@
 					success(r) {
 						for (var i = 0; i < 10; i++) {
 							var eachplayer = {id:'', img:'', name:'', number:'', uniform_number:''};
-							eachplayer.id = r.data[i].id;
-							eachplayer.img = r.data[i].photo;
-							eachplayer.name = r.data[i].name;
-							eachplayer.uniform_number = r.data[i].uniform_number;
-							eachplayer.number = r.data[i].three_point_hit_percentage;
+							eachplayer.id = r.data.data[i].id;
+							eachplayer.img = r.data.data[i].photo;
+							eachplayer.name = r.data.data[i].name;
+							eachplayer.uniform_number = r.data.data[i].uniform_number;
+							eachplayer.number = r.data.data[i].three_point_hit_percentage;
 							that.player.push(eachplayer);
 						}
 						console.log(r);
+						that.showColumn("canvasColumn");
 					}
 				});
-				that.showColumn("canvasColumn");
 			},
 			penalty_hit_percentage: function(r) {
 				var that = this;
 				that.current = 6;
 				that.player = [];
 				uni.request({
-					url: "http://127.0.0.1:8000/api/rank/",
+					url: "/api/rank/",
 					method: "GET",
 					data: {
 						type: "penalty_hit_percentage",
@@ -475,24 +475,24 @@
 					success(r) {
 						for (var i = 0; i < 10; i++) {
 							var eachplayer = {id:'', img:'', name:'', number:'', uniform_number:''};
-							eachplayer.id = r.data[i].id;
-							eachplayer.img = r.data[i].photo;
-							eachplayer.name = r.data[i].name;
-							eachplayer.uniform_number = r.data[i].uniform_number;
-							eachplayer.number = r.data[i].penalty_hit_percentage;
+							eachplayer.id = r.data.data[i].id;
+							eachplayer.img = r.data.data[i].photo;
+							eachplayer.name = r.data.data[i].name;
+							eachplayer.uniform_number = r.data.data[i].uniform_number;
+							eachplayer.number = r.data.data[i].penalty_hit_percentage;
 							that.player.push(eachplayer);
 						}
 						console.log(r);
+						that.showColumn("canvasColumn");
 					}
 				});
-				that.showColumn("canvasColumn");
 			},
 			assists: function(r) {
 				var that = this;
 				that.current = 7;
 				that.player = [];
 				uni.request({
-					url: "http://127.0.0.1:8000/api/rank/",
+					url: "/api/rank/",
 					method: "GET",
 					data: {
 						type: "assists",
@@ -500,24 +500,24 @@
 					success(r) {
 						for (var i = 0; i < 10; i++) {
 							var eachplayer = {id:'', img:'', name:'', number:'', uniform_number:''};
-							eachplayer.id = r.data[i].id;
-							eachplayer.img = r.data[i].photo;
-							eachplayer.name = r.data[i].name;
-							eachplayer.uniform_number = r.data[i].uniform_number;
-							eachplayer.number = r.data[i].assists;
+							eachplayer.id = r.data.data[i].id;
+							eachplayer.img = r.data.data[i].photo;
+							eachplayer.name = r.data.data[i].name;
+							eachplayer.uniform_number = r.data.data[i].uniform_number;
+							eachplayer.number = r.data.data[i].assists;
 							that.player.push(eachplayer);
 						}
 						console.log(r);
+						that.showColumn("canvasColumn");
 					}
 				});
-				that.showColumn("canvasColumn");
 			},
 			snatch: function(r) {
 				var that = this;
 				that.current = 8;
 				that.player = [];
 				uni.request({
-					url: "http://127.0.0.1:8000/api/rank/",
+					url: "/api/rank/",
 					method: "GET",
 					data: {
 						type: "snatch",
@@ -525,24 +525,24 @@
 					success(r) {
 						for (var i = 0; i < 10; i++) {
 							var eachplayer = {id:'', img:'', name:'', number:'', uniform_number:''};
-							eachplayer.id = r.data[i].id;
-							eachplayer.img = r.data[i].photo;
-							eachplayer.name = r.data[i].name;
-							eachplayer.uniform_number = r.data[i].uniform_number;
-							eachplayer.number = r.data[i].snatch;
+							eachplayer.id = r.data.data[i].id;
+							eachplayer.img = r.data.data[i].photo;
+							eachplayer.name = r.data.data[i].name;
+							eachplayer.uniform_number = r.data.data[i].uniform_number;
+							eachplayer.number = r.data.data[i].snatch;
 							that.player.push(eachplayer);
 						}
 						console.log(r);
+						that.showColumn("canvasColumn");
 					}
 				});
-				that.showColumn("canvasColumn");
 			},
 			blocks: function(r) {
 				var that = this;
 				that.current = 9;
 				that.player = [];
 				uni.request({
-					url: "http://127.0.0.1:8000/api/rank/",
+					url: "/api/rank/",
 					method: "GET",
 					data: {
 						type: "blocks",
@@ -550,49 +550,24 @@
 					success(r) {
 						for (var i = 0; i < 10; i++) {
 							var eachplayer = {id:'', img:'', name:'', number:'', uniform_number:''};
-							eachplayer.id = r.data[i].id;
-							eachplayer.img = r.data[i].photo;
-							eachplayer.name = r.data[i].name;
-							eachplayer.uniform_number = r.data[i].uniform_number;
-							eachplayer.number = r.data[i].blocks;
+							eachplayer.id = r.data.data[i].id;
+							eachplayer.img = r.data.data[i].photo;
+							eachplayer.name = r.data.data[i].name;
+							eachplayer.uniform_number = r.data.data[i].uniform_number;
+							eachplayer.number = r.data.data[i].blocks;
 							that.player.push(eachplayer);
 						}
 						console.log(r);
+						that.showColumn("canvasColumn");
 					}
 				});
-				that.showColumn("canvasColumn");
-			},
-			miss: function(r) {
-				var that = this;
-				that.current = 10;
-				that.player = [];
-				uni.request({
-					url: "http://127.0.0.1:8000/api/rank/",
-					method: "GET",
-					data: {
-						type: "miss",
-					},
-					success(r) {
-						for (var i = 0; i < 10; i++) {
-							var eachplayer = {id:'', img:'', name:'', number:'', uniform_number:''};
-							eachplayer.id = r.data[i].id;
-							eachplayer.img = r.data[i].photo;
-							eachplayer.name = r.data[i].name;
-							eachplayer.uniform_number = r.data[i].uniform_number;
-							eachplayer.number = r.data[i].miss;
-							that.player.push(eachplayer);
-						}
-						console.log(r);
-					}
-				});
-				that.showColumn("canvasColumn");
 			},
 			foul: function(r) {
 				var that = this;
 				that.current = 11;
 				that.player = [];
 				uni.request({
-					url: "http://127.0.0.1:8000/api/rank/",
+					url: "/api/rank/",
 					method: "GET",
 					data: {
 						type: "foul",
@@ -600,17 +575,17 @@
 					success(r) {
 						for (var i = 0; i < 10; i++) {
 							var eachplayer = {id:'', img:'', name:'', number:'', uniform_number:''};
-							eachplayer.id = r.data[i].id;
-							eachplayer.img = r.data[i].photo;
-							eachplayer.name = r.data[i].name;
-							eachplayer.uniform_number = r.data[i].uniform_number;
-							eachplayer.number = r.data[i].foul;
+							eachplayer.id = r.data.data[i].id;
+							eachplayer.img = r.data.data[i].photo;
+							eachplayer.name = r.data.data[i].name;
+							eachplayer.uniform_number = r.data.data[i].uniform_number;
+							eachplayer.number = r.data.data[i].foul;
 							that.player.push(eachplayer);
 						}
 						console.log(r);
+						that.showColumn("canvasColumn");
 					}
 				});
-				that.showColumn("canvasColumn");
 			},
 			goto: function(id) {
 				var iid = id;

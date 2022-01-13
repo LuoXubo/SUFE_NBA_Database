@@ -106,9 +106,9 @@
 						</view>
 						<view style="display: flex; flex-direction: row;">
 							<canvas canvas-id="canvasLine" id="canvasLine"
-								style="margin-left: upx; margin-top: 100upx; height: 1000upx; width: 1000upx;"></canvas>
+								style="float: left; margin-top: 100upx; height: 1000upx; width: 1000upx;"></canvas>
 							<canvas canvas-id="canvasPie" id="canvasPie"
-								style="margin-left: upx; margin-top: 100upx; height: 600upx; width: 600upx;"></canvas>
+								style="float: right; margin-top: 100upx; height: 600upx; width: 600upx;"></canvas>
 						</view>
 					</view>
 				</view>
@@ -242,7 +242,7 @@
 						min : 0,
 						max : 1
 					},
-					width: 500,
+					width: 450,
 					height: 500,
 					// extra: {
 					// 	line: {

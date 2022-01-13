@@ -33,18 +33,18 @@
 						</view> 
 						<view class="main_title">
 							<img src="../../static/ct_1.png" alt="">
-							select 2 players
+							20 players
 						</view>
 						<view class="chart">
 							<ul>
 								<li>
 									<b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-									<image class="img" :src='player[0].img'></image>
+									<image class="img" :src="player[0].img"></image>
 									<strong @click="sel">{{player[0].name}}</strong>
 								</li>
 								<li>
 									<b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-									<image class="img" :src='player[1].img'></image>
+									<image class="img" :src="player[1].img"></image>
 									<strong @click="sel">{{player[1].name}}</strong>
 								</li>
 							</ul>
@@ -53,12 +53,12 @@
 							<ul>
 								<li>
 									<b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-									<image class="img" :src='player[2].img'></image>
+									<image class="img" :src="player[2].img"></image>
 									<strong @click="sel">{{player[2].name}}</strong>
 								</li>
 								<li>
 									<b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-									<image class="img" :src='player[3].img'></image>
+									<image class="img" :src="player[3].img"></image>
 									<strong @click="sel">{{player[3].name}}</strong>
 								</li>
 							</ul>
@@ -67,12 +67,12 @@
 							<ul>
 								<li>
 									<b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-									<image class="img" :src='player[4].img'></image>
+									<image class="img" :src="player[4].img"></image>
 									<strong @click="sel">{{player[4].name}}</strong>
 								</li>
 								<li>
 									<b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-									<image class="img" :src='player[5].img'></image>
+									<image class="img" :src="player[5].img"></image>
 									<strong @click="sel">{{player[5].name}}</strong>
 								</li>
 							</ul>
@@ -81,12 +81,12 @@
 							<ul>
 								<li>
 									<b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-									<image class="img" :src='player[6].img'></image>
+									<image class="img" :src="player[6].img"></image>
 									<strong @click="sel">{{player[6].name}}</strong>
 								</li>
 								<li>
 									<b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-									<image class="img" :src='player[7].img'></image>
+									<image class="img" :src="player[7].img"></image>
 									<strong @click="sel">{{player[7].name}}</strong>
 								</li>
 							</ul>
@@ -95,12 +95,12 @@
 							<ul>
 								<li>
 									<b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-									<image class="img" :src='player[8].img'></image>
+									<image class="img" :src="player[8].img"></image> 
 									<strong @click="sel">{{player[8].name}}</strong>
 								</li>
 								<li>
 									<b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-									<image class="img" :src='player[9].img'></image>
+									<image class="img" :src="player[9].img"></image>
 									<strong @click="sel">{{player[9].name}}</strong>
 								</li>
 							</ul>
@@ -127,12 +127,12 @@
 							<ul>
 								<li>
 									<b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-									<image class="img" :src='player[10].img'></image>
+									<image class="img" :src="player[10].img"></image>
 									<strong @click="sel">{{player[10].name}}</strong>
 								</li>
 								<li>
 									<b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-									<image class="img" :src='player[11].img'></image>
+									<image class="img" :src="player[11].img"></image>
 									<strong @click="sel">{{player[11].name}}</strong>
 								</li>
 							</ul>
@@ -141,12 +141,12 @@
 							<ul>
 								<li>
 									<b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-									<image class="img" :src='player[12].img'></image>
+									<image class="img" :src="player[12].img"></image>
 									<strong @click="sel">{{player[12].name}}</strong>
 								</li>
 								<li>
 									<b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-									<image class="img" :src='player[13].img'></image>
+									<image class="img" :src="player[13].img"></image>
 									<strong @click="sel">{{player[13].name}}</strong>
 								</li>
 							</ul>
@@ -155,12 +155,12 @@
 							<ul>
 								<li>
 									<b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-									<image class="img" :src='player[14].img'></image>
+									<image class="img" :src="player[14].img"></image>
 									<strong @click="sel">{{player[14].name}}</strong>
 								</li>
 								<li>
 									<b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-									<image class="img" :src='player[15].img'></image>
+									<image class="img" :src="player[15].img"></image>
 									<strong @click="sel">{{player[15].name}}</strong>
 								</li>
 							</ul>
@@ -169,12 +169,12 @@
 							<ul>
 								<li>
 									<b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-									<image class="img" :src='player[16].img'></image>
+									<image class="img" :src="player[16].img"></image>
 									<strong @click="sel">{{player[16].name}}</strong>
 								</li>
 								<li>
 									<b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-									<image class="img" :src='player[17].img'></image>
+									<image class="img" :src="player[17].img"></image>
 									<strong @click="sel">{{player[17].name}}</strong>
 								</li>
 							</ul>
@@ -183,12 +183,12 @@
 							<ul>
 								<li>
 									<b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-									<image class="img" :src='player[18].img'></image>
+									<image class="img" :src="player[18].img"></image>
 									<strong @click="sel">{{player[18].name}}</strong>
 								</li>
 								<li>
 									<b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
-									<image class="img" :src='player[19].img'></image>
+									<image class="img" :src="player[19].img"></image>
 									<strong @click="sel">{{player[19].name}}</strong>
 								</li>
 							</ul>
@@ -219,7 +219,7 @@
 						</view> 
 						<view class="main_title" style="width: 230px;">
 							<img src="../../static/ct_2.png" alt="">
-							compare
+							select & compare
 						</view>
 						<view class="blank" style="height: 30px;"></view>
 						<view class="chart">
@@ -239,6 +239,10 @@
 											<view class="item" v-for="(item, index) in player" :key="player.id">{{player[index].name}}</view>
 										</picker-view-column>
 									</picker-view>
+								</li>
+								<li @click="ok">
+									<b class="animation-1"></b><b class="animation-2"></b><b class="animation-3"></b>
+									<view class="item">compare!</view>
 								</li>
 							</ul>
 						</view>
@@ -264,7 +268,6 @@
 							<canvas canvas-id="canvasPie5" id="canvasPie" class="charts" ></canvas>
 							<canvas canvas-id="canvasPie6" id="canvasPie" class="charts" ></canvas>
 							<canvas canvas-id="canvasPie7" id="canvasPie" class="charts" ></canvas>
-							<canvas canvas-id="canvasPie8" id="canvasPie" class="charts" ></canvas>
 						</view>
 						<view class="te5">
 							assists 
@@ -274,9 +277,6 @@
 						</view>
 						<view class="te7">
 							blocks 
-						</view>
-						<view class="te8">
-							miss 
 						</view>
 					</view>
 				</view>
@@ -352,10 +352,12 @@
 	export default {
 		data () {
 			return {
+				sel1: 0,
+				sel2: 0,
 				indicatorStyle: 'height: 40px',
 				pixelRatio: 1,
 				player1: [{
-					hit_percentage: 0.3,
+					/* hit_percentage: 0.3,
 					three_point_hit_percentage: 0.4,
 					penalty_hit_percentage: 0.6,
 					total_rebounds: 100,
@@ -366,10 +368,10 @@
 					foul: 50,
 					score: 40,
 					id: 1,
-					name: 'Stephen Curry',
+					name: 'Stephen Curry', */
 				}],
 				player2: [{
-					hit_percentage: 0.3,
+					/* hit_percentage: 0.3,
 					three_point_hit_percentage: 0.4,
 					penalty_hit_percentage: 0.6,
 					total_rebounds: 100,
@@ -380,10 +382,10 @@
 					foul: 50,
 					score: 40,
 					id: 2,
-					name: 'Draymond Green',
+					name: 'Draymond Green', */
 				}],
 				player: [
-					{
+					/* {
 						img: 'https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png',
 						name: 'Stephen Curry',
 						id: 1
@@ -483,91 +485,103 @@
 						name: 'Stephen Curry',
 						id: 20
 					},
+					 */
 				],
 			}
 		},
 		onLoad:function(r){
-			_self = this;
+			var _self = this;
+			var that = this;
 			uni.request({
 				url: "/api/player_comparison/",
 				method: "GET",
 				data: {},
 				success(r) {
-					for (var i = 0; i < 10; i++) {
+					console.log(r);
+					for (var i = 0; i < 20; i++) {
 						var eachplayer = {id:'', img:'', name:''};
-						eachplayer.id = r.data[i].id;
-						eachplayer.img = r.data[i].photo;
-						eachplayer.name = r.data[i].name;
+						eachplayer.id = r.data.data[i].id;
+						eachplayer.img = r.data.data[i].photo;
+						eachplayer.name = r.data.data[i].name_e;
 						that.player.push(eachplayer);
 					}
-					console.log(r);
+					/* that.showColumn("canvasPie1", _self.player1[0].name, _self.player2[0].name, _self.player1[0].hit_percentage, _self.player2[0].hit_percentage);
+					that.showColumn("canvasPie2", _self.player1[0].name, _self.player2[0].name, _self.player1[0].three_point_hit_percentage, _self.player2[0].three_point_hit_percentage);
+					that.showColumn("canvasPie3", _self.player1[0].name, _self.player2[0].name, _self.player1[0].penalty_hit_percentage, _self.player2[0].penalty_hit_percentage);
+					that.showColumn("canvasPie4", _self.player1[0].name, _self.player2[0].name, _self.player1[0].total_rebounds, _self.player2[0].total_rebounds);
+					that.showColumn("canvasPie5", _self.player1[0].name, _self.player2[0].name, _self.player1[0].assists, _self.player2[0].assists);
+					that.showColumn("canvasPie6", _self.player1[0].name, _self.player2[0].name, _self.player1[0].snatch, _self.player2[0].snatch);
+					that.showColumn("canvasPie7", _self.player1[0].name, _self.player2[0].name, _self.player1[0].blocks, _self.player2[0].blocks);
+					that.showColumn("canvasPie8", _self.player1[0].name, _self.player2[0].name, _self.player1[0].miss, _self.player2[0].miss);
+					that.showColumn("canvasPie9", _self.player1[0].name, _self.player2[0].name, _self.player1[0].score, _self.player2[0].score);
+					that.showColumn("canvasPie10", _self.player1[0].name, _self.player2[0].name, _self.player1[0].foul, _self.player2[0].foul); */
 				}
 			});
-			this.showColumn("canvasPie1", _self.player1[0].name, _self.player2[0].name, _self.player1[0].hit_percentage, _self.player2[0].hit_percentage);
-			this.showColumn("canvasPie2", _self.player1[0].name, _self.player2[0].name, _self.player1[0].three_point_hit_percentage, _self.player2[0].three_point_hit_percentage);
-			this.showColumn("canvasPie3", _self.player1[0].name, _self.player2[0].name, _self.player1[0].penalty_hit_percentage, _self.player2[0].penalty_hit_percentage);
-			this.showColumn("canvasPie4", _self.player1[0].name, _self.player2[0].name, _self.player1[0].total_rebounds, _self.player2[0].total_rebounds);
-			this.showColumn("canvasPie5", _self.player1[0].name, _self.player2[0].name, _self.player1[0].assists, _self.player2[0].assists);
-			this.showColumn("canvasPie6", _self.player1[0].name, _self.player2[0].name, _self.player1[0].snatch, _self.player2[0].snatch);
-			this.showColumn("canvasPie7", _self.player1[0].name, _self.player2[0].name, _self.player1[0].blocks, _self.player2[0].blocks);
-			this.showColumn("canvasPie8", _self.player1[0].name, _self.player2[0].name, _self.player1[0].miss, _self.player2[0].miss);
-			this.showColumn("canvasPie9", _self.player1[0].name, _self.player2[0].name, _self.player1[0].score, _self.player2[0].score);
-			this.showColumn("canvasPie10", _self.player1[0].name, _self.player2[0].name, _self.player1[0].foul, _self.player2[0].foul);
+			console.log(that.player);
 		},
 		methods: {
 			change1: function(e) {
 				var that = this;
+				that.player1 = [];
+				that.sel1 = that.player[e.detail.value[0]].id;
 				console.log(that.player[e.detail.value[0]].id);
 				uni.request({
-					url: "http://127.0.0.1:8000/api/player_comparison_detail/",
+					url: "/api/player_comparison_detail/",
 					method: "GET",
 					data: {
 						id: that.player[e.detail.value[0]].id,
 					},
 					success(r) {
 						var eachplayer1 = {id:'', name:'', hit_percentage: 0, three_point_hit_percentage: 0, penalty_hit_percentage: 0, total_rebounds: 0, assists: 0, snatch: 0, blocks: 0, miss: 0, foul: 0, score: 0};
-						eachplayer1.id = r.data.id;
-						eachplayer1.name = r.data.name;
-						eachplayer1.hit_percentage = r.data.hit_percentage;
-						eachplayer1.three_point_hit_percentage = r.data.three_point_hit_percentage;
-						eachplayer1.penalty_hit_percentage = r.data.penalty_hit_percentage;
-						eachplayer1.total_rebounds = r.data.total_rebounds;
-						eachplayer1.assists = r.data.assists;
-						eachplayer1.snatch = r.data.snatch;
-						eachplayer1.blocks = r.data.blocks;
-						eachplayer1.miss = r.data.miss;
-						eachplayer1.score = r.data.score;
-						eachplayer1.foul = r.data.foul;
+						eachplayer1.id = r.data.data.id;
+						eachplayer1.name = r.data.data.name;
+						eachplayer1.hit_percentage = r.data.data.hit_percentage;
+						eachplayer1.three_point_hit_percentage = r.data.data.three_point_hit_percentage;
+						eachplayer1.penalty_hit_percentage = r.data.data.penalty_hit_percentage;
+						eachplayer1.total_rebounds = r.data.data.total_rebounds;
+						eachplayer1.assists = r.data.data.assists;
+						eachplayer1.snatch = r.data.data.snatch;
+						eachplayer1.blocks = r.data.data.blocks;
+						eachplayer1.miss = r.data.data.miss;
+						eachplayer1.score = r.data.data.score;
+						eachplayer1.foul = r.data.data.foul;
 						that.player1.push(eachplayer1);
+						console.log("okokoo");
 						console.log(r);
+						console.log("11111111");
+						console.log(that.player1);
 					}
 				});
 			},
 			change2: function(e) {
 				var that = this;
+				that.player2 = [];
+				that.sel2 = that.player[e.detail.value[0]].id
 				console.log(that.player[e.detail.value[0]].id);
 				uni.request({
-					url: "http://127.0.0.1:8000/api/player_comparison_detail/",
+					url: "/api/player_comparison_detail/",
 					method: "GET",
 					data: {
 						id: that.player[e.detail.value[0]].id,
 					},
 					success(r) {
 						var eachplayer2 = {id:'', name:'', hit_percentage: 0, three_point_hit_percentage: 0, penalty_hit_percentage: 0, total_rebounds: 0, assists: 0, snatch: 0, blocks: 0, miss: 0, foul: 0, score: 0};
-						eachplayer2.id = r.data.id;
-						eachplayer2.name = r.data.name;
-						eachplayer2.hit_percentage = r.data.hit_percentage;
-						eachplayer2.three_point_hit_percentage = r.data.three_point_hit_percentage;
-						eachplayer2.penalty_hit_percentage = r.data.penalty_hit_percentage;
-						eachplayer2.total_rebounds = r.data.total_rebounds;
-						eachplayer2.assists = r.data.assists;
-						eachplayer2.snatch = r.data.snatch;
-						eachplayer2.blocks = r.data.blocks;
-						eachplayer2.miss = r.data.miss;
-						eachplayer2.score = r.data.score;
-						eachplayer2.foul = r.data.foul;
+						eachplayer2.id = r.data.data.id;
+						eachplayer2.name = r.data.data.name;
+						eachplayer2.hit_percentage = r.data.data.hit_percentage;
+						eachplayer2.three_point_hit_percentage = r.data.data.three_point_hit_percentage;
+						eachplayer2.penalty_hit_percentage = r.data.data.penalty_hit_percentage;
+						eachplayer2.total_rebounds = r.data.data.total_rebounds;
+						eachplayer2.assists = r.data.data.assists;
+						eachplayer2.snatch = r.data.data.snatch;
+						eachplayer2.blocks = r.data.data.blocks;
+						eachplayer2.miss = r.data.data.miss;
+						eachplayer2.score = r.data.data.score;
+						eachplayer2.foul = r.data.data.foul;
 						that.player2.push(eachplayer2);
 						console.log(r);
+						console.log("2222222");
+						console.log(that.player2);
 					}
 				});
 			},
@@ -580,7 +594,7 @@
 					fontSize: 11,
 					legend: true,
 					background:'#FFFFFF',
-					pixelRatio: _self.pixelRatio,
+					pixelRatio: 1,
 					series: [{
 								"name": data1,
 								"data": data3,
@@ -591,7 +605,7 @@
 								"textColor": "white",
 							}],
 					animation: true,
-					width: 200,
+					width: 190,
 					height: 230,
 					dataLabel: true,
 					extra: {
@@ -601,6 +615,19 @@
 					},
 				});
 			},
+			ok: function(e) {
+				console.log("compare");
+				var that = this;
+				that.showColumn("canvasPie1", that.player1[0].name, that.player2[0].name, that.player1[0].hit_percentage, that.player2[0].hit_percentage);
+				that.showColumn("canvasPie2", that.player1[0].name, that.player2[0].name, that.player1[0].three_point_hit_percentage, that.player2[0].three_point_hit_percentage);
+				that.showColumn("canvasPie3", that.player1[0].name, that.player2[0].name, that.player1[0].penalty_hit_percentage, that.player2[0].penalty_hit_percentage);
+				that.showColumn("canvasPie4", that.player1[0].name, that.player2[0].name, that.player1[0].total_rebounds, that.player2[0].total_rebounds);
+				that.showColumn("canvasPie5", that.player1[0].name, that.player2[0].name, that.player1[0].assists, that.player2[0].assists);
+				that.showColumn("canvasPie6", that.player1[0].name, that.player2[0].name, that.player1[0].snatch, that.player2[0].snatch);
+				that.showColumn("canvasPie7", that.player1[0].name, that.player2[0].name, that.player1[0].blocks, that.player2[0].blocks);
+				that.showColumn("canvasPie9", that.player1[0].name, that.player2[0].name, that.player1[0].score, that.player2[0].score);
+				that.showColumn("canvasPie10", that.player1[0].name, that.player2[0].name, that.player1[0].foul, that.player2[0].foul);
+			}
 		},
 	}
 </script>
@@ -1015,7 +1042,7 @@
 		color: #fff;
 		position: relative;
 		float: left;
-		left: 8%;
+		left: 5%;
 		height: 20px;
 	}
 	.te2{
@@ -1023,7 +1050,7 @@
 		color: #fff;
 		position: relative;
 		float: left;
-		left: 13%;
+		left: 8%;
 		height: 20px;
 	}
 	.te3{
@@ -1031,7 +1058,7 @@
 		display: block;
 		position: relative;
 		float: left;
-		left: 16%;
+		left: 10%;
 		height: 20px;
 	}
 	.te4{
@@ -1039,7 +1066,7 @@
 		display: block;
 		position: relative;
 		float: left;
-		left: 23%;
+		left: 13%;
 		height: 20px;
 	}
 	.te5{
@@ -1064,14 +1091,6 @@
 		position: relative;
 		float: left;
 		left: 47%;
-		height: 20px;
-	}
-	.te8{
-		color: #fff;
-		display: block;
-		position: relative;
-		float: left;
-		left: 66%;
 		height: 20px;
 	}
 </style>
