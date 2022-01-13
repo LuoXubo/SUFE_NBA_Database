@@ -100,10 +100,11 @@
 						</view>
 						<view style=" margin-top: 100upx; text-align: center; color: white;">
 							<view style="font-size: 50upx;">{{name}}</view>
-							<view style="font-size: 40upx; margin-top: 20upx;">{{number}}</view>
-							<view style="font-size: 40upx; margin-top: 20upx;">{{position}}</view>
-							<view style="font-size: 40upx; margin-top: 20upx;">{{height}}</view>
-							<view style="font-size: 40upx; margin-top: 20upx;">{{weight}}</view>
+							<view style="font-size: 40upx; margin-top: 20upx;">Number : {{number}}</view>
+							<view style="font-size: 40upx; margin-top: 20upx;">Position : {{position}}</view>
+							<view style="font-size: 40upx; margin-top: 20upx;">Height : {{height}}</view>
+							<view style="font-size: 40upx; margin-top: 20upx;">Weight : {{weight}}</view>
+							<view style="font-size: 40upx; margin-top: 20upx;">Age : {{age}}</view>
 						</view>
 					</view>
 				</view>

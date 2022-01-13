@@ -65,9 +65,9 @@
 							Coach Information
 						</view>
 						<view style="color: white; margin-top: 50upx; text-align: center;">
-							<view style="font-size: 50upx;">{{coach_name}}</view>
-							<view style="font-size: 40upx;">{{birthday}}</view>
-							<view style="font-size: 40upx;">{{birthcity}}</view>
+							<view style="font-size: 50upx;">Name : {{coach_name}}</view>
+							<view style="font-size: 40upx;">Birthday : {{birthday}}</view>
+							<view style="font-size: 40upx;">Hometown : {{birthcity}}</view>
 						</view>
 					</view>
 				</view>
@@ -96,12 +96,19 @@
 						<view class="main_title" style="width: 230px;">
 							<img src="../../static/ct_2.png" alt="">
 							Coach Stat
+							<!-- <view style="display: flex; flex-direction: row;">
+								<canvas canvas-id="canvasLine" id="canvasLine"
+									style="margin-left: 0upx; margin-top: 0upx; height: 600upx; width: 600upx;"></canvas>
+								<canvas canvas-id="canvasPie" id="canvasPie"
+									style="margin-left: 1600upx; margin-top: 100upx; height: 600upx; width: 600upx;"></canvas>
+							
+							</view> -->
 						</view>
 						<view style="display: flex; flex-direction: row;">
 							<canvas canvas-id="canvasLine" id="canvasLine"
-								style="margin-left: 400upx; margin-top: 100upx; height: 600upx; width: 600upx;"></canvas>
+								style="margin-left: upx; margin-top: 100upx; height: 1000upx; width: 1000upx;"></canvas>
 							<canvas canvas-id="canvasPie" id="canvasPie"
-								style="margin-left: 1600upx; margin-top: 100upx; height: 600upx; width: 600upx;"></canvas>
+								style="margin-left: upx; margin-top: 100upx; height: 600upx; width: 600upx;"></canvas>
 						</view>
 					</view>
 				</view>
@@ -165,29 +172,29 @@
 				},
 				complete: () => {}
 			});
+			
 		},
 		methods: {
 			getServerData() {
-				console.log('!!!!');
-				_self = this;
+				// console.log('!!!!');
 				let Line = {
 					categories: [],
 					series: []
 				};
 				let categories = [];
-				let series = [{
-					name: 'win rate(%)',
-					data: [],
-					color: '#ffffff'
-				}];
+				
 				var temp = [];
 				for (let i = 0; i < this.coach_data.length; i++) {
 					categories.push(this.coach_data[i].season);
-					temp.push(this.coach_data[i].win_rate);
+					temp.push(this.coach_data[i].win_rate * 100);
 				}
 				categories.reverse();
 				temp.reverse();
-				series.data = temp;
+				let series = [{
+					"name": 'win rate(%)',
+					"data": temp,
+					"color": '#ffffff'
+				}];
 				Line.categories = categories;
 				Line.series = series;
 				let Pie = {
@@ -206,7 +213,7 @@
 				_self.showPie("canvasPie", Pie);
 			},
 			showLine(canvasId, chartData) {
-				console.log('·······');
+				console.log(chartData.series);
 				canvaLine = new uCharts({
 					context: uni.createCanvasContext(canvasId, _self),
 					$this: _self,
@@ -217,34 +224,32 @@
 					dataLabel: true,
 					dataPointShape: true,
 					background: '#55ffff',
-					// pixelRatio: _self.pixelRatio,
-					// categories: chartData.categories,
-					// series: chartData.series,
-					categories : ['12', '23'],
-					series : [{
-						name : '123',
-						data : [12, 23],
-						color : 'white'
-					}],
+					pixelRatio: _self.pixelRatio,
+					categories: chartData.categories,
+					series: chartData.series,
 					animation: true,
 					xAxis: {
 						type: 'grid',
-						gridColor: '#ff5500',
+						gridColor: '#ffaa00',
 						gridType: 'dash',
 						dashLength: 8
 					},
 					yAxis: {
+						title : 'Win rate',
 						gridType: 'dash',
-						gridColor: '#ff5500',
+						gridColor: '#ff557f',
 						dashLength: 8,
+						min : 0,
+						max : 1
 					},
 					width: 500,
 					height: 500,
-					extra: {
-						line: {
-							type: 'straight'
-						}
-					}
+					// extra: {
+					// 	line: {
+					// 		type: 'straight',
+					// 		max : 1
+					// 	}
+					// }
 				});
 			},
 			showPie(canvasId, chartData) {

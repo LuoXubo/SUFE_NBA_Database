@@ -126,47 +126,14 @@
 				cWidth:'',
 				cHeight:'',
 				pixelRatio:1,
-				name : 'Stephen Curry',
-				number : '30',
-				position : 'Guard',
-				height : '191cm',
-				weight : '84kg',
-				player_img : 'https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png',
-				player_img_full : 'https://marstranslator-images-sz.oss-cn-shenzhen.aliyuncs.com/cover_images/15849649128543.jpg',
+				name : '',
+				number : '',
+				position : '',
+				height : '',
+				weight : '',
+				player_img : '',
 				season_data : [
-					{
-						season : '2021-2022',
-						score : 27.7,
-						scoring_rate : '43.4%',
-						three_rate : '40.0%',
-						freethrow_rate : '92.0%',
-						basket : 5.3,
-						assist : 6.0,
-						steal : 1.5,
-						block : 0.5
-					},
-					{
-						season : '2020-2021',
-						score : 32.0,
-						scoring_rate : '48.2%',
-						three_rate : '42.1%',
-						freethrow_rate : '91.6%',
-						basket : 5.5,
-						assist : 5.8,
-						steal : 1.2,
-						block : 0.1
-					},
-					{
-						season : '2019-2020',
-						score : 20.8,
-						scoring_rate : '40.2%',
-						three_rate : '24.5',
-						freethrow_rate : '100.0%',
-						basket : 5.2,
-						assist : 6.6,
-						steal : 1.0,
-						block : 0.4
-					},
+					
 				]
 			};
 		},
@@ -183,7 +150,7 @@
 				success: res => {
 					let data = res.data.data;
 					console.log(data);
-					this.name = data.name;
+					this.name = data.name_e;
 					this.player_img = data.photo;
 					this.season_data = data.detail;
 				},
@@ -207,12 +174,18 @@
 				var basket = [];
 				var assist = [];
 				for(let i=0;i<season_data.length;i++){
+					if(season_data[i].match_type != '常规赛'){
+						continue;
+					}
 					categories.push(season_data[i].season);
 					score.push(season_data[i].score);
-					basket.push(season_data[i].basket);
-					assist.push(season_data[i].assist);
+					basket.push(season_data[i].total_rebounds);
+					assist.push(season_data[i].assists);
 				}
-				
+				categories.reverse();
+				score.reverse();
+				basket.reverse();
+				assist.reverse();
 				var series = [];
 				series.push({
 					name : 'Score',
